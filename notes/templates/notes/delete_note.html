@@ -1,0 +1,24 @@
+{% extends 'mainpage/base.html' %}
+
+{% block title%}
+Удаление заметок
+{% endblock %}
+
+{% block content%}
+{% if user.is_authenticated %}
+    <div class="notes">
+        <h1>Удаление заметки:</h1>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            <br>
+            <button class="btn btn-success" type="submit">Удалить заметку</button>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+
+{% else %}
+    <span>Вы не авторизированы.</span>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'mainpage/base.html' %}
+
+{% block title%}
+Список заметок
+{% endblock %}
+
+{% block content%}
+{% if user.is_authenticated %}
+    <div class="container">
+    {% for note in notes %}
+        <div class="card bg-light border-primary">
+            <div class="card-body">
+                <h5 class="card-title">{{note.title}}</h5>
+                <p class="card-text">{{note.date}}</p>
+                <a role="button" href="{% url 'update_note' note.id %}" class="btn btn-secondary align-items-end">Изменить</a>
+                <a role="button" href="{% url 'delete_note' note.id %}" class="btn btn-primary align-items-end">Удалить</a>
+        </div>
+        </div>
+        <br>
+    {% endfor %}
+    </div>
+{% else %}
+    <span>Вы не авторизированы.</span>
+{% endif %}
+
+{% endblock %}
+

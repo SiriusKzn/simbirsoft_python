@@ -1,0 +1,9 @@
+Для разворачивания проекта в первый раз необходимо запустить скрипт startProject.sh, либо выполнить следующие команды в терминале:
+1) "docker-compose build"
+2) "docker-compose up" 
+3) Подождать пока развернётся БД
+4) Остановить Docker-контейнер
+5) "docker-compose run web python manage.py migrate"
+6) "docker-compose start"
+
+Рещение будет развёрнуто на http://localhost:8000/

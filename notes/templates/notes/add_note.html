@@ -1,0 +1,25 @@
+{% extends 'mainpage/base.html' %}
+
+{% block title%}
+Редактирование заметок
+{% endblock %}
+
+{% block content%}
+{% if user.is_authenticated %}
+    <div class="notes">
+        <h1>Добавление заметки:</h1>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.title }}
+            <br>
+            <button class="btn btn-primary" type="submit">Добавить заметку</button>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+
+{% else %}
+    <span>Вы не авторизированы.</span>
+{% endif %}
+
+{% endblock %}
